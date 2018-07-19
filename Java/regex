@@ -1,0 +1,43 @@
+(\D)8 =
+$ =
+^ =
+(?=) =
+(?<=) =
+[a-z] =
+.* =
+.*? =
+\d =
+\d+ =
+\d* =
+\d{0,} =
+\d{1,8} =
+\d? =
+\w =
+[^0-9] =
+
+Exercicios:
+
+texto: Alex - 01/02/12
+Resultado esperado: 01/02/12
+Regex: \d+\/\d+\/\d+
+
+
+texto: Alex - 01/02/12\nGilson 01/03/20
+Resultado esperado: 02/12, 03/20
+Regex: (?<=\d\d\/)\d+\/\d+
+
+texto: Alex - 01/02/12
+Resultado esperado: 01
+Regex: (?<= )\d\d(?=\/)
+
+texto: Alex Rabelo - 01/02/12\nTeste1 - 01/02/12\nTeste2 - 01/02/12
+Resultado esperado: 1= Alex Rabelo, 2= Teste1, 3= Teste2
+Regex: [\w ]+(?= -)
+
+texto: Alex - 01/02/12\nTelefone: 213-12310:234\nTeste1 - 01/02/12\nTeste2 - 01/02/12
+Resultado esperado: 213-12310:234
+Regex: (?<=Telefone: )\d{3}-\d{5}:\d{3}
+
+texto: Alex - 01/02/12\nTelefone: 213-123:234\nTeste1 - 01/02/12\nTeste2 - 01/02/12\nTelefone: 213-456:234
+Resultado esperado: 1= 123 -> referente ao segundo digito do telefone, 2= 456
+Regex: (?<=\d\d\d-)\d{3}(?=:)
